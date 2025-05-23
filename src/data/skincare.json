@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Brightening Serum",
+    "brand": "Glowify",
+    "description": "Serum pencerah wajah dengan kandungan vitamin C untuk kulit cerah alami.",
+    "price": 120000,
+    "category": "Serum",
+    "image": "/img/somethinc1.jpg",
+    "bestSeller": true
+  },
+  {
+    "name": "Hydrating Toner",
+    "brand": "SkinJoy",
+    "description": "Toner yang melembapkan kulit dengan aloe vera dan hyaluronic acid.",
+    "price": 85000,
+    "category": "Toner",
+    "image": "/img/somethinc2.jpg",
+    "bestSeller": false
+  },
+  {
+    "name": "Acne Spot Treatment",
+    "brand": "ClearSkin",
+    "description": "Mengatasi jerawat secara cepat dengan formula salicylic acid.",
+    "price": 99000,
+    "category": "Treatment",
+    "image": "/img/somethinc3.jpg",
+    "bestSeller": true
+  },
+  {
+    "name": "Daily Moisturizer",
+    "brand": "PureDerm",
+    "description": "Pelembap ringan untuk digunakan sehari-hari, cocok untuk semua jenis kulit.",
+    "price": 105000,
+    "category": "Moisturizer",
+    "image": "/img/somethinc4.jpg",
+    "bestSeller": false
+  },
+  {
+    "name": "Sunscreen SPF 50+",
+    "brand": "SunProtect",
+    "description": "Perlindungan dari sinar UV A & B dengan tekstur ringan dan tidak lengket.",
+    "price": 115000,
+    "category": "Sunscreen",
+    "image": "/img/wardah.jpeg",
+    "bestSeller": true
+  }
+]

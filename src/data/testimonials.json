@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Almira Nabila",
+    "role": "Beauty Enthusiast",
+    "quote": "GlowSphere bikin aku makin update soal produk lokal yang bagus. UI-nya juga friendly banget!",
+    "rating": 5,
+    "avatar": "https://i.pravatar.cc/100?img=11"
+  },
+  {
+    "name": "Dio Ramadhan",
+    "role": "Owner of Skincare Lokal",
+    "quote": "Platform ini bantu banget buat promosiin brand aku. Fiturnya jelas dan user-nya aktif!",
+    "rating": 4,
+    "avatar": "https://i.pravatar.cc/100?img=12"
+  },
+  {
+    "name": "Tiara Lestari",
+    "role": "Mahasiswi & Reviewer Produk",
+    "quote": "Aku suka banget fitur event dan artikelnya. Ngebantu cari insight sebelum beli produk skincare!",
+    "rating": 5,
+    "avatar": "https://i.pravatar.cc/100?img=13"
+  }
+]

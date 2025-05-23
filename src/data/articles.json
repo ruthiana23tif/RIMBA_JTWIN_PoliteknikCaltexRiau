@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Rahasia Kulit Glowing ala Artis Lokal",
+    "description": "Mengungkap rutinitas skincare artis Indonesia yang bisa kamu tiru dengan produk lokal.",
+    "category": "Beauty Tips",
+    "author": "GlowSphere Team",
+    "date": "10 Mei 2025",
+    "image": "/img/Glow.jpg"
+  },
+  {
+    "id": 2,
+    "title": "5 Produk Skincare Lokal yang Hype Banget 2025",
+    "description": "Dari essence sampai sunscreen, ini dia produk lokal yang lagi viral di GlowTok.",
+    "category": "Produk Lokal",
+    "author": "Alya Putri",
+    "date": "12 Mei 2025",
+    "image": "/img/wardah3.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Tutorial Makeup Simpel Buat Pemula",
+    "description": "Gak perlu alat mahal, kamu bisa tampil fresh ke kampus cuma pakai 5 produk!",
+    "category": "Makeup",
+    "author": "Nadya Ramadhani",
+    "date": "13 Mei 2025",
+    "image": "/img/wardah2.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Kenali Kandungan Skincare yang Aman Buat Kulit Sensitif",
+    "description": "Buat kamu yang oily dan acne-prone, ini bahan yang wajib kamu hindari (dan yang aman!).",
+    "category": "Skincare",
+    "author": "Dr. Arina Putra",
+    "date": "14 Mei 2025",
+    "image": "/img/wardah.jpeg"
+  },
+  {
+    "id": 5,
+    "title": "GlowSphere Beauty Class Recap: Serunya Belajar Bareng MUA Lokal",
+    "description": "Yuk, intip keseruan acara beauty class offline pertama GlowSphere!",
+    "category": "Event",
+    "author": "GlowSphere Crew",
+    "date": "15 Mei 2025",
+    "image": "/img/skintific.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Tren Skincare Ramah Lingkungan di Indonesia",
+    "description": "Brand lokal makin keren! Ini dia produk-produk eco-friendly yang patut kamu coba.",
+    "category": "Eco Beauty",
+    "author": "Sarah Elvina",
+    "date": "16 Mei 2025",
+    "image": "/img/sea1.jpeg"
+  }
+]

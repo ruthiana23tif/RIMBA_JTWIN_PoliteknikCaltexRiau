@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Superstay Vinyl Ink Tint 10 Lippy",
+    "image": "/img/sea1.jpeg",
+    "price": 139900,
+    "discount": 35
+  },
+  {
+    "name": "Somethinc Brow Matters Triangle Eyebrow Pencil",
+    "image": "/img/cosrx.jpeg",
+    "price": 72000,
+    "discount": 30
+  },
+  {
+    "name": "Wardah EyeXpert Liftlast Mascara",
+    "image": "/img/makeover1.jpg",
+    "price": 65000,
+    "discount": 25
+  },
+  {
+    "name": "Superstay Vinyl Ink Tint 60 Mischievous",
+    "image": "/img/sea2.jpeg",
+    "price": 139900,
+    "discount": 35
+  }
+]

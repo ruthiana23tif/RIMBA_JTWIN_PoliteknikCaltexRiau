@@ -1,0 +1,112 @@
+/* Import font modern */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.about-container {
+    display: flex;
+    align-items: center; /* Biar sejajar tengah secara vertikal */
+    justify-content: center; /* Biar ke tengah secara horizontal */
+    gap: 20px; /* Jarak antara gambar dan teks */
+    max-width: 80%; /* Biar nggak terlalu mepet ke samping */
+    margin: 0 auto; /* Biar tetap di tengah */
+}
+.image-container img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+.about-text {
+    max-width: 500px; /* Batasi lebar teks biar rapi */
+}
+
+
+/* Styling untuk keseluruhan halaman */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff5f8; /* Latar belakang pink soft */
+    color: #444;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container utama untuk membungkus konten */
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Card untuk konten */
+.card {
+    max-width: 600px;
+    width: 100%;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(255, 105, 180, 0.2);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+/* Efek hover pada card */
+.card:hover {
+    transform: scale(1.02);
+}
+
+/* Header utama */
+h1 {
+    color: #ff6b81; /* Warna pink soft */
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Paragraf */
+p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* Garis pemisah */
+hr {
+    border: none;
+    height: 3px;
+    background: #ffdde1; /* Pink soft */
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+/* Greeting */
+small {
+    display: block;
+    font-style: italic;
+    color: #888;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* Tombol utama */
+.button {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3); /* Gradient pink */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, #ff5f7e, #ff6b81);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+}
