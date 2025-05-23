@@ -4,7 +4,7 @@ import "./assets/tailwind.css";
 import { Routes, Route } from "react-router-dom";
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 import Makeup from "./pages/Makeup";
-import Skincare from "./pages/skincare";
+import Skincare from "./pages/Skincare";
 import BestSeller from "./pages/BestSeller";
 import NotFound from "./pages/ErrorPage";
 import MainLayout from "./layouts/MainLayout";
