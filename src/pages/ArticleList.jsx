@@ -1,6 +1,7 @@
 import articles from "../data/articles.json";
 import { useState } from "react";
 import Header from "../layouts/Header";
+import { Link } from "react-router-dom";
 
 const PER_PAGE = 3;
 
@@ -26,8 +27,11 @@ export default function ArticleList() {
                 />
                 <div className="p-4 flex flex-col flex-1">
                 <p className="text-sm text-pink-600 font-medium mb-1">{article.category}</p>
-                <h3 className="text-lg font-semibold mb-2">{article.title}</h3>
-                <p className="text-sm text-gray-700 flex-grow">{article.description}</p>
+<h3 className="text-lg font-semibold mb-2">
+  <Link to={`/articles/${article.slug}`} className="text-pink-600 hover:underline">
+    {article.title}
+  </Link>
+</h3>                <p className="text-sm text-gray-700 flex-grow">{article.description}</p>
                 <p className="text-xs text-gray-500 mt-3">
                     {article.author} • {article.date}
                 </p>

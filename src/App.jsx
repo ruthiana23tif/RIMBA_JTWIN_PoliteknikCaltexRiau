@@ -17,6 +17,12 @@ import Testimonials from "./pages/TestimonialsPage";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import ArticleList from "./pages/ArticleList";
+import QuoteCard from "./components/QuoteCard";
+import TeamList from "./pages/TeamList";
+import TeamMemberDetail from "./pages/TeamMemberDetail";
+import ArticleDetail from "./pages/ArticleDetail";
+import SkincareDetail from "./pages/SkincareDetail";
+import MakeupDetail from "./pages/MakeupDetail";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -32,6 +38,12 @@ function App() {
           <Route path="aboutus" element={<AboutUs />} />
           <Route path="contactus" element={<ContactUs />} />
           <Route path="article" element={<ArticleList />} />
+           <Route path="quotecard" element={<QuoteCard />} />
+           <Route path="/team" element={<TeamList />} />
+           <Route path="/team/:id" element={<TeamMemberDetail />} />
+           <Route path="/articles/:slug" element={<ArticleDetail />} />
+           <Route path="/skincare/:id" element={<SkincareDetail/>} />
+            <Route path="/makeup/:id" element={<MakeupDetail />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

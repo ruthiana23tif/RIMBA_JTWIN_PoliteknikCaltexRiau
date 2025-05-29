@@ -47,6 +47,14 @@ export default function Header() {
           <Link to="/article" 
           className="hover:text-black transition">Artikel</Link>
         </span>
+        <span id="nav-link">
+          <Link to="/quotecard" 
+          className="hover:text-black transition">Quote</Link>
+        </span>
+        <span id="nav-link">
+          <Link to="/team" 
+          className="hover:text-black transition">Team</Link>
+        </span>
       </div>
             {/* Icon Section */}
             <div className="flex items-center space-x-6 text-gray-800 text-lg">

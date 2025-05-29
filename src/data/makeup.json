@@ -1,26 +1,56 @@
 [
   {
-    "name": "Superstay Vinyl Ink Tint 10 Lippy",
-    "image": "/img/sea1.jpeg",
-    "price": 139900,
-    "discount": 35
-  },
-  {
-    "name": "Somethinc Brow Matters Triangle Eyebrow Pencil",
-    "image": "/img/cosrx.jpeg",
-    "price": 72000,
-    "discount": 30
-  },
-  {
-    "name": "Wardah EyeXpert Liftlast Mascara",
+    "id": 1,
+    "name": "Lipstik Matte Wardah",
+    "price": 58000,
+    "discount": 25,
     "image": "/img/makeover1.jpg",
-    "price": 65000,
-    "discount": 25
+    "category": "Lips",
+    "description": "Lipstik matte dengan warna tahan lama dan tidak membuat bibir kering."
   },
   {
-    "name": "Superstay Vinyl Ink Tint 60 Mischievous",
-    "image": "/img/sea2.jpeg",
-    "price": 139900,
-    "discount": 35
+    "id": 2,
+    "name": "Maybelline Fit Me Foundation",
+    "price": 120000,
+    "discount": 20,
+    "image": "/img/skintific.jpg",
+    "category": "Face",
+    "description": "Foundation ringan dengan hasil akhir matte dan coverage natural."
+  },
+  {
+    "id": 3,
+    "name": "Emina Cheeklit Cream Blush",
+    "price": 48000,
+    "discount": 15,
+    "image": "/img/somethinc1.jpg",
+    "category": "Cheeks",
+    "description": "Blush on cream dengan warna segar untuk pipi merona alami."
+  },
+  {
+    "id": 4,
+    "name": "Make Over Powerstay Eye Palette",
+    "price": 165000,
+    "discount": 30,
+    "image": "/img/wardah3.jpg",
+    "category": "Eyes",
+    "description": "Eyeshadow palette dengan berbagai warna intens dan tahan lama."
+  },
+  {
+    "id": 5,
+    "name": "Wardah Eyexpert Optimum Hi-Black Liner",
+    "price": 75000,
+    "discount": 10,
+    "image": "/img/wardah4.jpg",
+    "category": "Eyes",
+    "description": "Eyeliner cair dengan warna hitam pekat dan ujung presisi."
+  },
+  {
+    "id": 6,
+    "name": "PINKFLASH Waterproof Mascara",
+    "price": 39000,
+    "discount": 20,
+    "image": "/img/somethinc4.jpg",
+    "category": "Eyes",
+    "description": "Maskara waterproof yang memberikan efek lentik dan panjang sepanjang hari."
   }
 ]

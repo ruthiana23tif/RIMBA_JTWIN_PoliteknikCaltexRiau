@@ -1,56 +1,23 @@
 [
   {
     "id": 1,
-    "title": "Rahasia Kulit Glowing ala Artis Lokal",
-    "description": "Mengungkap rutinitas skincare artis Indonesia yang bisa kamu tiru dengan produk lokal.",
-    "category": "Beauty Tips",
-    "author": "GlowSphere Team",
-    "date": "10 Mei 2025",
-    "image": "/img/Glow.jpg"
-  },
-  {
-    "id": 2,
-    "title": "5 Produk Skincare Lokal yang Hype Banget 2025",
-    "description": "Dari essence sampai sunscreen, ini dia produk lokal yang lagi viral di GlowTok.",
-    "category": "Produk Lokal",
-    "author": "Alya Putri",
-    "date": "12 Mei 2025",
-    "image": "/img/wardah3.jpg"
-  },
-  {
-    "id": 3,
-    "title": "Tutorial Makeup Simpel Buat Pemula",
-    "description": "Gak perlu alat mahal, kamu bisa tampil fresh ke kampus cuma pakai 5 produk!",
+    "title": "5 Tips Makeup Natural",
+    "slug": "5-tips-makeup-natural",
+    "description": "Pelajari teknik makeup natural untuk tampilan glowing.",
     "category": "Makeup",
-    "author": "Nadya Ramadhani",
-    "date": "13 Mei 2025",
-    "image": "/img/wardah2.jpg"
+    "author": "Alya Putri",
+    "date": "2024-12-01",
+    "image": "https://i.pravatar.cc/150?u=dina"
   },
-  {
-    "id": 4,
-    "title": "Kenali Kandungan Skincare yang Aman Buat Kulit Sensitif",
-    "description": "Buat kamu yang oily dan acne-prone, ini bahan yang wajib kamu hindari (dan yang aman!).",
-    "category": "Skincare",
-    "author": "Dr. Arina Putra",
-    "date": "14 Mei 2025",
-    "image": "/img/wardah.jpeg"
-  },
-  {
-    "id": 5,
-    "title": "GlowSphere Beauty Class Recap: Serunya Belajar Bareng MUA Lokal",
-    "description": "Yuk, intip keseruan acara beauty class offline pertama GlowSphere!",
-    "category": "Event",
-    "author": "GlowSphere Crew",
-    "date": "15 Mei 2025",
-    "image": "/img/skintific.jpg"
-  },
-  {
-    "id": 6,
-    "title": "Tren Skincare Ramah Lingkungan di Indonesia",
-    "description": "Brand lokal makin keren! Ini dia produk-produk eco-friendly yang patut kamu coba.",
-    "category": "Eco Beauty",
-    "author": "Sarah Elvina",
-    "date": "16 Mei 2025",
-    "image": "/img/sea1.jpeg"
-  }
+{
+  "id": 2,
+  "title": "Perawatan Kulit Wajah Sensitif",
+  "slug": "perawatan-kulit-wajah-sensitif",
+  "description": "Cara merawat kulit wajah sensitif agar tetap sehat dan glowing.",
+  "category": "Skincare",
+  "author": "Dina Kartika",
+  "date": "2025-01-15",
+  "image": "https://akcdn.detik.net.id/community/media/visual/2020/02/17/ef881b48-43cf-4d14-afd2-624ff0394921.jpeg?q=90&w=480"
+}
+
 ]

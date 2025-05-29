@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "name": "Alya Putri",
+    "role": "Makeup Artist",
+    "bio": "Ahli makeup dengan 5 tahun pengalaman di industri kecantikan.",
+    "photo": "https://randomuser.me/api/portraits/women/44.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Dina Kartika",
+    "role": "Skincare Specialist",
+    "bio": "Berfokus pada perawatan kulit alami dan glowing.",
+    "photo": "https://randomuser.me/api/portraits/women/65.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Nina Saraswati",
+    "role": "Fragrance Expert",
+    "bio": "Memiliki keahlian dalam memilih aroma parfum sesuai kepribadian.",
+    "photo": "https://randomuser.me/api/portraits/women/22.jpg"
+  }
+]
