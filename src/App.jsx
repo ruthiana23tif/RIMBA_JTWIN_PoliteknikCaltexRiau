@@ -23,6 +23,10 @@ import TeamMemberDetail from "./pages/TeamMemberDetail";
 import ArticleDetail from "./pages/ArticleDetail";
 import SkincareDetail from "./pages/SkincareDetail";
 import MakeupDetail from "./pages/MakeupDetail";
+import MediaGallery from "./pages/MediaGallery";
+import CareerPage from "./pages/CareerPage";
+import FaqPage from "./pages/FaqPage";
+import Booking from "./pages/Booking";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -33,6 +37,10 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="skincare" element={<Skincare />} />
           <Route path="makeup" element={<Makeup />} />
+           <Route path="/media" element={<MediaGallery />} />
+           <Route path="/career" element={<CareerPage />} />
+           <Route path="/faq" element={<FaqPage />} />
+           <Route path="/booking" element={<Booking />} />
           <Route path="bestseller" element={<BestSeller />} />
           <Route path="testimoni" element={<Testimonials />} />
           <Route path="aboutus" element={<AboutUs />} />

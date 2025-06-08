@@ -20,10 +20,6 @@ export default function Header() {
           className="hover:text-black transition">Home</Link>
         </span>
         <span id="nav-link">
-          <Link to="/products"          
-          className="hover:text-black transition">Products</Link>
-        </span>
-        <span id="nav-link">
           <Link to="/skincare" 
           className="hover:text-black transition">Skincare</Link>
         </span>
@@ -54,6 +50,22 @@ export default function Header() {
         <span id="nav-link">
           <Link to="/team" 
           className="hover:text-black transition">Team</Link>
+        </span>
+        <span id="nav-link">
+          <Link to="/media" 
+          className="hover:text-black transition">Katalog Media</Link>
+        </span>
+        <span id="nav-link">
+          <Link to="/career" 
+          className="hover:text-black transition">Career Page</Link>
+        </span>
+         <span id="nav-link">
+          <Link to="/faq" 
+          className="hover:text-black transition">FAQ Page</Link>
+        </span>
+        <span id="nav-link">
+          <Link to="/booking" 
+          className="hover:text-black transition"> Booking</Link>
         </span>
       </div>
             {/* Icon Section */}
