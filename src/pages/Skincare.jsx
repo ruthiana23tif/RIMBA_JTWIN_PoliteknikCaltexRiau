@@ -12,7 +12,6 @@ export default function Skincare() {
 
   return (
     <div id="skincare-container">
-      <Header />
       <div className="p-5 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {skincare.map((item, index) => {
           const discount = 30; // contoh diskon 30%

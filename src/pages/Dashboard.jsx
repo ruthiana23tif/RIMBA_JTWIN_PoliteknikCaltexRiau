@@ -12,7 +12,6 @@ import Header from "../layouts/Header";
 export default function Dashboard() {
     return (
         <div id="dashboard-container">
-            <Header/>
             <HeroSection />
             <FeatureInfo/>
             <ShopByCategory/>
