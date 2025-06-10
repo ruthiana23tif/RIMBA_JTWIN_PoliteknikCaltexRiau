@@ -18,7 +18,7 @@ export default function BestSeller() {
 
   return (
     <div id="bestseller-container">
-      <Header />
+     
 
       <div className="text-center py-10">
         <h1 className="text-3xl font-bold text-hijau">Best Seller Skincare</h1>

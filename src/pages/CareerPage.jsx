@@ -31,7 +31,6 @@ export default function CareerPage() {
 
   return (
     <div className="p-6">
-      <Header />
       <div className=" py-12 px-6 text-center">
       <span className="inline-block mb-4 px-4 py-1 rounded-full text-sm font-medium bg-white text-gray-800 border border-gray-300 shadow-sm">
         We&apos;re hiring!

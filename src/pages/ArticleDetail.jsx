@@ -12,7 +12,7 @@ export default function ArticleDetail() {
 
   return (
     <>
-      <Header />
+     
       <div className="max-w-3xl mx-auto p-6">
         <img
           src={article.image}

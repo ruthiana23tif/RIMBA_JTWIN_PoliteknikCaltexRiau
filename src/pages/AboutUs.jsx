@@ -14,7 +14,7 @@ export default function AboutUs() {
 
   return (
     <>
-    <Header/>
+   
       <div className="bg-white text-gray-800 font-sans">
         {/* Hero Section */}
         <div
