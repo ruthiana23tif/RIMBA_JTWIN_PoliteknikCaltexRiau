@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import team from "../data/team.json";
-import Header from "../layouts/Header";
 
 export default function TeamMemberDetail() {
   const { id } = useParams();
@@ -13,7 +12,6 @@ export default function TeamMemberDetail() {
 
   return (
     <>
-      <Header />
       <div className="max-w-xl mx-auto p-6">
         <img
           src={member.photo}

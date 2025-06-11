@@ -1,15 +1,36 @@
 // src/pages/TeamList.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import team from "../data/team.json";
-import Header from "../layouts/Header";
+import { teamAPI } from "../services/teamAPI";
+import LoadingSpinner from "../components/LoadingSpinner";
+import AlertBox from "../components/AlertBox";
+import EmptyState from "../components/EmptyState";
 
 export default function TeamList() {
+  const [team, setTeam] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const result = await teamAPI.fetchTeam();
+        setTeam(result);
+      } catch (err) {
+        setError(err.message || "Gagal memuat data tim.");
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
+  if (loading) return <LoadingSpinner />;
+  if (error) return <AlertBox message={error} />;
+  if (team.length === 0) return <EmptyState message="Belum ada anggota tim." />;
+
   return (
-    <>
-        <Header/>
     <div className="max-w-5xl mx-auto px-4 py-10">
-    
       <h1 className="text-3xl font-bold text-center text-rose-600 mb-8">Our Team</h1>
 
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -35,6 +56,5 @@ export default function TeamList() {
         ))}
       </div>
     </div>
-    </>
   );
 }

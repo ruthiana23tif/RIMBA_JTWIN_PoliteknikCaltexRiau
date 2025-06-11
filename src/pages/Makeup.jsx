@@ -1,6 +1,5 @@
 import { useState } from "react";
 import makeupData from "../data/makeup.json";
-import Header from "../layouts/Header";
 import { Link } from "react-router-dom";
 
 
@@ -9,7 +8,6 @@ export default function Makeup() {
 
   return (
     <div id="makeup-container">
-        <Header/>
       <div className="p-5 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {makeup.map((item, index) => {
   const finalPrice = Math.round(item.price * ((100 - item.discount) / 100));

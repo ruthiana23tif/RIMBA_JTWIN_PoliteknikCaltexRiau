@@ -30,7 +30,6 @@ export default function FaqPage() {
 
   return (
     <>
-    <Header/>
     <div className="max-w-3xl mx-auto p-6">
       
       <h1 className="text-3xl font-bold mb-6 text-center">Pertanyaan Umum (FAQ)</h1>

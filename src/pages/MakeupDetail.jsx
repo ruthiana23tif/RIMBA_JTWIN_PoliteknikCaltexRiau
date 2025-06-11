@@ -1,7 +1,5 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import makeupData from "../data/makeup.json";
-import Header from "../layouts/Header";
 
 export default function MakeupDetail() {
   const { id } = useParams();
@@ -19,7 +17,6 @@ export default function MakeupDetail() {
 
   return (
     <>
-      <Header />
       <div className="max-w-2xl mx-auto p-6">
         <img
           src={product.image}

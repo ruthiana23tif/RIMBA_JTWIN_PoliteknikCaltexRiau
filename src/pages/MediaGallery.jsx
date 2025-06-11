@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
 import AlertBox from "../components/AlertBox";
 import EmptyState from "../components/EmptyState";
-import Header from "../layouts/Header";
 
 export default function MediaGallery() {
   const [data, setData] = useState([]);
@@ -31,7 +30,6 @@ export default function MediaGallery() {
 
   return (
     <div className="overflow-x-auto">
-        <Header/>
       <table className="min-w-full divide-y divide-gray-200 border rounded-lg shadow">
         <thead className="bg-gray-100">
           <tr>

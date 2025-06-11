@@ -1,20 +1,35 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
-import testimonialData from "../data/testimonials.json";
-import Header from "../layouts/Header";
+import { testimoniAPI } from "../services/testimoniAPI";
+import LoadingSpinner from "../components/LoadingSpinner";
+import AlertBox from "../components/AlertBox";
+import EmptyState from "../components/EmptyState";
 
 export default function TestimonialsPage() {
   const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setTestimonials(testimonialData); // langsung assign
+    async function fetchData() {
+      try {
+        const result = await testimoniAPI.fetchTestimonials();
+        setTestimonials(result);
+      } catch (err) {
+        setError(err.message || "Gagal memuat testimoni.");
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
   }, []);
 
+  if (loading) return <LoadingSpinner />;
+  if (error) return <AlertBox message={error} />;
+  if (testimonials.length === 0) return <EmptyState message="Belum ada testimoni saat ini." />;
+
   return (
-    <>
-    <Header/>
-<div className=" min-h-screen py-16 px-4 md:px-20 text-gray-800">
-  
+    <div className="min-h-screen py-16 px-4 md:px-20 text-gray-800">
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">They Trusted Us</h1>
         <p className="text-lg text-white/70 max-w-xl mx-auto">
@@ -23,14 +38,13 @@ export default function TestimonialsPage() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {testimonials.map((item, index) => (
+        {testimonials.map((item) => (
           <div
-            key={index}
+            key={item.id}
             className="bg-[#982c64] rounded-2xl shadow-xl p-6 relative hover:scale-105 transform transition duration-300"
           >
             <p className="text-white/90 mb-6 italic">“{item.quote}”</p>
-            <div className="flex items-ce
-            nter gap-4">
+            <div className="flex items-center gap-4">
               <img
                 src={item.avatar}
                 alt={item.name}
@@ -55,6 +69,5 @@ export default function TestimonialsPage() {
         ))}
       </div>
     </div>
-    </>
   );
 }
