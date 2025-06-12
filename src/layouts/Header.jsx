@@ -1,228 +1,213 @@
+import { RiLoginCircleFill } from "react-icons/ri";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import Logo from "../components/Logo";
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
-  const dropdownRef = useRef();
-  const [openExplore, setOpenExplore] = useState(false);
-  const [openProducts, setOpenProducts] = useState(false);
-    const [openCompany, setOpenCompany] = useState(false);
-const [showBooking, setShowBooking] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
 
+  const productsRef = useRef();
+  const companyRef = useRef();
+  const exploreRef = useRef();
 
-  // Tutup dropdown saat klik di luar area
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setOpen(false);
+      if (
+        !productsRef.current?.contains(event.target) &&
+        !companyRef.current?.contains(event.target) &&
+        !exploreRef.current?.contains(event.target)
+      ) {
+        setOpenDropdown(null);
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const toggleDropdown = (menuName) => {
+    setOpenDropdown((prev) => (prev === menuName ? null : menuName));
+  };
+
   return (
-    <div
-      id="header-container"
-      className="flex justify-between items-center p-4"
-    >
-      {/* Logo */}
-      <Logo width={160} />
+    <header className="bg-white border-b border-gray-200">
+      <div className="max-w-screen-xl mx-auto px-4 flex items-center justify-between py-2">
+        {/* Logo */}
+        <Logo width={110} />
 
-      {/* Navigation Menu */}
-      <div
-        id="nav-container"
-        className="flex items-center space-x-6 border-l pl-4 border-gray-300 text-sm text-gray-700 font-medium"
-      >
-        <span id="nav-link">
-          <Link to="/" className="hover:text-black transition">
-            Home
-          </Link>
-        </span>
-        <div className="relative inline-block text-left" ref={dropdownRef}>
-          <button
-            onClick={() => setOpenProducts(!openProducts)}
-            className="flex items-center font-semibold text-[#000000] hover:underline"
-          >
-            Products
-            <svg
-              className={`ml-1 w-4 h-4 transition-transform duration-200 ${
-                openProducts ? "rotate-180" : ""
-              }`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        {/* Navigation */}
+        <nav className="flex items-center space-x-5 text-sm text-gray-700 font-medium">
+          {/* Products Dropdown */}
+          <div className="relative" ref={productsRef}>
+            <button
+              onClick={() => toggleDropdown("products")}
+              className="flex items-center hover:underline font-inter text-[20px]"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
+              Products
+              <svg
+                className={`ml-1 w-4 h-4 transition-transform duration-200 ${openDropdown === "products" ? "rotate-180" : ""
+                  }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            {openDropdown === "products" && (
+              <div className="absolute mt-1 w-40 bg-white rounded-md shadow z-50">
+                <ul className="py-1 text-sm text-gray-700">
+                  <li>
+                    <Link
+                      to="/skincare"
+                      onClick={() => setOpenDropdown(null)}
+                      className="block px-4 py-2 hover:bg-gray-100 font-inter text-[20px]"
+                    >
+                      Skincare
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/makeup"
+                      onClick={() => setOpenDropdown(null)}
+                      className="block px-4 py-2 hover:bg-gray-100 font-inter text-[20px]"
+                    >
+                      Make Up
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+          {/* Explore Dropdown */}
+          <div className="relative" ref={exploreRef}>
+            <button
+              onClick={() => toggleDropdown("explore")}
+              className="flex items-center hover:underline font-inter text-[20px]">
+              Explore
+              <svg
+                className={`ml-1 w-4 h-4 transition-transform duration-200 ${openDropdown === "explore" ? "rotate-180" : ""
+                  }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {openDropdown === "explore" && (
+              <div className="absolute mt-1 w-40 bg-white rounded-md shadow z-50">
+                <ul className="py-1 text-sm text-gray-700">
+                  <li>
+                    <Link
+                      to="/aboutus"
+                      onClick={() => setOpenDropdown(null)}
+                      className="block px-4 py-2 hover:bg-gray-100">
+                      About Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/contactus"
+                      onClick={() => setOpenDropdown(null)}
+                      className="block px-4 py-2 hover:bg-gray-100">
+                      Contact Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/article"
+                      onClick={() => setOpenDropdown(null)}
+                      className="block px-4 py-2 hover:bg-gray-100">
+                      Artikel
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
 
-          {openProducts && (
-            <div className="absolute mt-2 w-48 rounded-lg bg-white shadow-lg ring-1 ring-black/5 z-50">
-              <ul className="py-2 text-sm text-gray-700">
-                <li>
-                  <Link
-                    to="/skincare"
-                    className="block px-4 py-2 hover:bg-gray-100 transition"
-                    onClick={() => setOpenProducts(false)}
-                  >
-                    Skincare
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/makeup"
-                    className="block px-4 py-2 hover:bg-gray-100 transition"
-                    onClick={() => setOpenProducts(false)}
-                  >
-                    Make Up
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          )}
-        </div>
 
-        <div className="relative inline-block text-left" ref={dropdownRef}>
-          <button
-            onClick={() => setOpenCompany(!openCompany)}
-            className="flex items-center font-semibold text-[#000000] hover:underline"
-          >
-            Company Info
-            <svg
-              className={`ml-1 w-4 h-4 transition-transform duration-200 ${
-                openCompany ? "rotate-180" : ""
-              }`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
 
-          {openCompany && (
-            <div className="absolute mt-2 w-48 rounded-lg bg-white shadow-lg ring-1 ring-black/5 z-50">
-              <ul className="py-2 text-sm text-gray-700">
-                <li>
-                  <Link
-                    to="/media"
-                    className="block px-4 py-2 hover:bg-gray-100 transition"
-                    onClick={() => setOpenCompany(false)}
-                  >
-                    Katalog Media
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/career"
-                    className="block px-4 py-2 hover:bg-gray-100 transition"
-                    onClick={() => setOpenCompany(false)}
-                  >
-                    Career Page
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          )}
-        </div>
-
-        <span id="nav-link">
-          <Link to="/testimoni" className="hover:text-black transition">
+          {/* Static Links */}
+          <Link
+            to="/testimoni"
+            className="hover:text-black font-inter text-[20px]">
             Testimoni
           </Link>
-        </span>
-
-        <span id="nav-link">
-          <Link to="/team" className="hover:text-black transition">
-            Team
-          </Link>
-        </span>
-        <span id="nav-link">
-          <Link to="/faq" className="hover:text-black transition">
+          <Link to="/faq" className="hover:text-black font-inter text-[20px]">
             FAQ Page
           </Link>
-        </span>
-        <span id="nav-link">
-          <Link to="/booking" className="hover:text-black transition">
-            {" "}
-            Booking
-          </Link>
-        </span>
-        <div className="relative inline-block text-left" ref={dropdownRef}>
-          <button
-            onClick={() => setOpenExplore(!openExplore)}
-            className="flex items-center font-semibold text-[#000000] hover:underline"
-          >
-            Explore
-            <svg
-              className={`ml-1 w-4 h-4 transition-transform duration-200 ${
-                openExplore ? "rotate-180" : ""
-              }`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          {/* Company Info Dropdown */}
+          <div className="relative" ref={companyRef}>
+            <button
+              onClick={() => toggleDropdown("company")}
+              className="flex items-center hover:underline font-inter text-[20px]"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
-
-          {openExplore && (
-            <div className="absolute mt-2 w-48 rounded-lg bg-white shadow-lg ring-1 ring-black/5 z-50">
-              <ul className="py-2 text-sm text-gray-700">
-                <li>
-                  <Link
-                    to="/aboutus"
-                    className="block px-4 py-2 hover:bg-gray-100 transition"
-                    onClick={() => setOpenExplore(false)}
-                  >
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/contactus"
-                    className="block px-4 py-2 hover:bg-gray-100 transition"
-                    onClick={() => setOpenExplore(false)}
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/article"
-                    className="block px-4 py-2 hover:bg-gray-100 transition"
-                    onClick={() => setOpenExplore(false)}
-                  >
-                    Artikel
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          )}
+              Company Info
+              <svg
+                className={`ml-1 w-4 h-4 transition-transform duration-200 ${openDropdown === "company" ? "rotate-180" : ""
+                  }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            {openDropdown === "company" && (
+              <div className="absolute mt-1 w-40 bg-white rounded-md shadow z-50">
+                <ul className="py-1 text-sm text-gray-700">
+                  <li>
+                    <Link
+                      to="/media"
+                      onClick={() => setOpenDropdown(null)}
+                      className="block px-4 py-2 hover:bg-gray-100 font-inter text-[20px]">
+                      Katalog Media
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/career"
+                      onClick={() => setOpenDropdown(null)}
+                      className="block px-4 py-2 hover:bg-gray-100 font-inter text-[20px]">
+                      Career Page
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+        </nav>
+        {/* Icons */}
+        <div className="flex items-center space-x-4 text-gray-700 text-base">
+          <a
+            href="https://glowsphere-app.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-black">
+            <RiLoginCircleFill className="cursor-pointer text-[29px]" />
+          </a>
+          <FaSearch className="cursor-pointer hover:text-black text-[29px]" />
+          <Link to="/booking" className="hover:text-black">
+            <FaShoppingCart className="cursor-pointer text-[29px]" />
+          </Link>
         </div>
       </div>
-      {/* Icon Section */}
-      <div className="flex items-center space-x-6 text-gray-800 text-lg">
-        <FaSearch className="cursor-pointer hover:text-black" />
-        <FaShoppingCart className="cursor-pointer hover:text-black" />
-      </div>
-    </div>
+    </header>
   );
 }

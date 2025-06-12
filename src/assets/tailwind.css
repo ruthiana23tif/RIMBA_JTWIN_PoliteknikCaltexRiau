@@ -11,9 +11,20 @@
     src: url('/fonts/Poppins-Reguler.ttf');
 }
 
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter_18pt-Reguler.ttf');
+}
+
+@plugin "daisyui" {
+    themes: light --default, dark --prefersdark;
+}
+
 @theme {
     --font-barlow: "Barlow", sans-serif;
     --font-poppins: "Poppins", sans-serif;
+        --font-inter: "Inter", sans-serif;
+
 
     --color-latar: #f3f4f6;
     --color-teks: #374151; 

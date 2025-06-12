@@ -7,7 +7,7 @@ export default function HeroSection() {
           <p className="text-gray-700 mb-6">
             We care about your skin at GET-GLOW. Your glow is of top priority to us.
           </p>
-          <button className="bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition">
+          <button className="bg-black text-white px-6 py-3  hover:bg-gray-800 transition">
             Shop Now
           </button>
         </div>
