@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import skincareData from "../data/skincare.json";
-import Header from "../layouts/Header";
+
 
 export default function SkincareDetail() {
   const { id } = useParams();
@@ -13,7 +13,7 @@ export default function SkincareDetail() {
 
   return (
     <>
-     <Header />
+
     <div className="max-w-2xl mx-auto p-6">
      
       <img

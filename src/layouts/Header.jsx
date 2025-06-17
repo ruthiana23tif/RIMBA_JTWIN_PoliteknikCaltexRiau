@@ -145,7 +145,7 @@ export default function Header() {
             Testimoni
           </Link>
           <Link to="/faq" className="hover:text-black font-inter text-[20px]">
-            FAQ Page
+            FAQ 
           </Link>
           {/* Company Info Dropdown */}
           <div className="relative" ref={companyRef}>
