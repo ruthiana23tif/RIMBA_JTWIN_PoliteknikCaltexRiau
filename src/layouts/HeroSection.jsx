@@ -2,8 +2,8 @@ export default function HeroSection() {
     return (
       <section id="hero" className="bg-gray-100 py-20 px-6 text-center relative flex flex-col lg:flex-row items-center justify-center">
         <div className="lg:w-1/2 text-left z-10 px-6">
-          <h1 className="text-4xl font-bold mb-4 text-gray-900">Make Your Skin pop with 
-            <span className="text-black">GLOWSPHERE</span></h1>
+          <h1 className="text-[64px] font-bold font-inter  mb-4 text-gray-900">Make Your Skin pop with 
+            <span className="text-black"> GLOWSPHERE</span></h1>
           <p className="text-gray-700 mb-6">
             We care about your skin at GET-GLOW. Your glow is of top priority to us.
           </p>

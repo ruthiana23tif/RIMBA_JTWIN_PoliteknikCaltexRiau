@@ -5,24 +5,24 @@ import { RiWallet3Line } from "react-icons/ri";
 export default function FeatureInfo() {
   const features = [
     {
-      icon: <RiWallet3Line className="text-4xl text-purple-500" />,        
+      icon: <RiWallet3Line className="text-4xl text-black-500" />,        
       title: "Flexible Payment",
       description: "Pay with multiple credit cards",
     },
     {
-      icon: <BsShieldCheck className="text-4xl text-purple-500" />,      
+      icon: <BsShieldCheck className="text-4xl text-black-500" />,      
       title: "Customer Support",
       description: "Prompt response to all complaints",
     },
     {
-      icon: <HiOutlineChatBubbleLeftRight className="text-4xl text-purple-500" />,    
+      icon: <HiOutlineChatBubbleLeftRight className="text-4xl text-black-500" />,    
       title: "Free Shipping",
       description: "Free shipping for orders above N50,000 (T & C apply)",
     },
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 bg-white sm:grid-cols-3 gap-8">
       {features.map((feature, index) => (
         <div 
           key={index} 

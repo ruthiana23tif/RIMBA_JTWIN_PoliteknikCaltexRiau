@@ -9,6 +9,7 @@ export default function MainLayout(){
         <div id="layout-wrapper" className="flex-1">
           <div id="main-content" className=" p-4">
             <Outlet/>
+            
           </div>
         </div>
       </div>
