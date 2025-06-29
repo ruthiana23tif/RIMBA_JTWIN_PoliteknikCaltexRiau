@@ -2,7 +2,7 @@ import { FaWhatsapp, FaInstagram, FaFacebookF } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white px-6 py-8">
+    <footer className="bg-pink-500 text-white px-6 py-8">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
         {/* Logo */}
         <h1 className="text-xl font-bold mb-4 md:mb-0">GLOWSPHERE</h1>

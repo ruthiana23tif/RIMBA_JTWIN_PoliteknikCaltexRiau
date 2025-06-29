@@ -1,6 +1,6 @@
 export default function Promo() {
   return (
-    <section className="bg-gray-100 px-6 py-12">
+    <section className="bg-gradient-to-b from-pink-50 to-white py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="relative rounded overflow-hidden">
           <img

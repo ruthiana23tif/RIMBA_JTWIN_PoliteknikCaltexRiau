@@ -14,6 +14,7 @@ export default function CareerPage() {
     async function fetchData() {
       try {
         const result = await careerAPI.fetchJobs();
+        console.log("Hasil dari API:", result);
         setJobs(result);
       } catch (err) {
         setError(err.message || "Gagal memuat lowongan pekerjaan.");

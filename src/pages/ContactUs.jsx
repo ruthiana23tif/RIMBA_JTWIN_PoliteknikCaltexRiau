@@ -1,7 +1,5 @@
-import React from 'react';
 
 import Contact from '../components/Contact';
-import Header from '../layouts/Header';
 
 const ContactUs = () => {
   return (

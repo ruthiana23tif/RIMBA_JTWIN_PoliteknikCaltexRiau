@@ -8,8 +8,8 @@ export default function AlertBox({ type = "info", children }) {
   };
 
   return (
-    <div className="alert alert-error shadow-lg">
-      <span>{error}</span>
+    <div className={`${baseClass} ${styles[type] || styles.info}`}>
+      <span>{children}</span>
     </div>
   );
 }
