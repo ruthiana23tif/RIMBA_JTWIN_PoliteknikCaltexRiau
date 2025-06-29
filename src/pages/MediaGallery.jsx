@@ -5,6 +5,12 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import AlertBox from "../components/AlertBox";
 import EmptyState from "../components/EmptyState";
 
+// Tambahkan ini 👇
+function extractYouTubeID(url) {
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/))([\w-]{11})/);
+  return match ? match[1] : null;
+}
+
 export default function MediaGallery() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -26,10 +32,10 @@ export default function MediaGallery() {
   }, []);
 
   const breakpointColumnsObj = {
-    default: 4,   // desktop
-    1024: 3,      // tablet landscape
-    768: 2,       // tablet portrait
-    500: 1        // HP
+    default: 4,
+    1024: 3,
+    768: 2,
+    500: 1,
   };
 
   if (loading) return <LoadingSpinner />;
@@ -42,18 +48,41 @@ export default function MediaGallery() {
       className="flex w-auto gap-4 p-4"
       columnClassName="masonry-column"
     >
-      {data.map((item) => (
-        <div
-          key={item.id}
-          className="mb-4 overflow-hidden rounded-xl bg-white shadow hover:shadow-lg transition-shadow duration-300"
-        >
-          <img
-            src={item.file}
-            alt={`media-${item.id}`}
-            className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
-          />
-        </div>
-      ))}
+      {data.map((item) => {
+        const isYouTube = item.file.includes("youtube.com") || item.file.includes("youtu.be");
+        const isVideo = /\.(mp4|webm|ogg)(\?.*)?$/.test(item.file) || isYouTube;
+
+
+        return (
+          <div
+            key={item.id}
+            className="mb-4 overflow-hidden rounded-xl bg-white shadow hover:shadow-lg transition-shadow duration-300"
+          >
+            {isYouTube ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${extractYouTubeID(item.file)}`}
+                title={`YouTube video ${item.id}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full aspect-video rounded-xl"
+              />
+            ) : isVideo ? (
+              <video
+                src={item.file}
+                controls
+                className="w-full h-auto object-cover"
+              />
+            ) : (
+              <img
+                src={item.file}
+                alt={`media-${item.id}`}
+                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+              />
+            )}
+          </div>
+        );
+      })}
     </Masonry>
   );
 }
