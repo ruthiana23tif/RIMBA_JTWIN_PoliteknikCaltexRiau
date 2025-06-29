@@ -62,6 +62,10 @@ export default function Header() {
                     <Link to="/makeup" onClick={() => setOpenDropdown(null)}
                       className="block px-4 py-2 hover:bg-pink-50">Make Up</Link>
                   </li>
+                  <li>
+                    <Link to="/pricing" onClick={() => setOpenDropdown(null)}
+                      className="block px-4 py-2 hover:bg-pink-50">Promo Paket</Link>
+                  </li>
                 </ul>
               </div>
             )}

@@ -28,6 +28,7 @@ import CareerPage from "./pages/CareerPage";
 import FaqPage from "./pages/FaqPage";
 import Booking from "./pages/Booking";
 import PricingPage from "./components/PricingPage";
+import Simulasi from "./pages/Simulasi";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -44,7 +45,7 @@ function App() {
           <Route path="/booking" element={<Booking />} />
           <Route path="bestseller" element={<BestSeller />} />
           <Route path="pricing" element={<PricingPage />} />
-
+<Route path="simulasi" element={<Simulasi />} />
           <Route path="testimoni" element={<Testimonials />} />
           <Route path="aboutus" element={<AboutUs />} />
           <Route path="contactus" element={<ContactUs />} />
