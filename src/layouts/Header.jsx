@@ -207,7 +207,7 @@ export default function Header() {
 
         <div className="flex items-center space-x-4 text-pink-700 text-[20px]">
           <a
-            href="https://glowsphere-app.vercel.app/"
+            href="https://glowsphere-app.vercel.app/login"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-pink-900 transition-transform duration-300 hover:scale-110"

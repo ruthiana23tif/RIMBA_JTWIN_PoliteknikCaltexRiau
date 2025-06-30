@@ -10,18 +10,14 @@ const headers = {
 };
 
 export const pricingAPI = {
-  async fetchPricing() {
-    try {
-      const response = await axios.get(API_URL, {
-        headers,
-        params: {
-          order: "price.asc",
-        },
-      });
-      return response.data;
-    } catch (error) {
-      console.error("Gagal fetch pricing:", error);
-      return [];
-    }
+  async getAll() {
+    const response = await axios.get(API_URL, {
+      headers,
+      params: {
+        order: "price.asc",
+      },
+    });
+    return response.data;
   },
 };
+

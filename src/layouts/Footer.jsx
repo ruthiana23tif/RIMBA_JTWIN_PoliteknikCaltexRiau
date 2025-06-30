@@ -18,7 +18,7 @@ export default function Footer() {
 <Link to="/booking" className="hover:text-pink-500 transition">Shop</Link>
 <Link to="/media" className="hover:text-pink-500 transition">Gallery</Link>
 <Link to="/aboutus" className="hover:text-pink-500 transition">About</Link>
-<Link to="/contactus" className="hover:text-pink-500 transition">Contact</Link>
+<Link to="/contactus" className="hover:text-pink-500 transition">Contact Us</Link>
 
         </nav>
 

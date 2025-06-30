@@ -4,7 +4,7 @@ export default function Promo() {
       <div className="max-w-7xl mx-auto">
         <div className="relative rounded overflow-hidden">
           <img
-            src="/img/Glow.jpg"
+            src="/img/try.png"
             alt="Promo"
             className="w-full h-[500px] object-cover"
           />

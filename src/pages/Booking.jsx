@@ -1,13 +1,17 @@
+import { useState, useEffect } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import AlertBox from "../components/AlertBox";
 import EmptyState from "../components/EmptyState";
 import GenericTable from "../components/GenericTable";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { bookingAPI } from "../services/bookingAPI";
-import { useState, useEffect } from "react";
+import { skincareAPI } from "../services/skincareAPI";
+import { makeupAPI } from "../services/makeupAPI";
+import { pricingAPI } from "../services/pricingAPI";
 
 export default function Booking() {
   const [bookings, setBookings] = useState([]);
+  const [productOptions, setProductOptions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -20,14 +24,26 @@ export default function Booking() {
     notes: "",
     product: "",
     quantity: 1,
+    price: 0,
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+
+    setFormData((prev) => {
+      const updated = { ...prev, [name]: value };
+
+      if (name === "product" || name === "quantity") {
+        const selectedProduct = productOptions.find(
+          (p) => p.name === (name === "product" ? value : prev.product)
+        );
+        const quantity = name === "quantity" ? Number(value) : Number(prev.quantity);
+        const unitPrice = selectedProduct?.price || 0;
+        updated.price = unitPrice * quantity;
+      }
+
+      return updated;
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -47,6 +63,7 @@ export default function Booking() {
         notes: "",
         product: "",
         quantity: 1,
+        price: 0,
       });
       loadBookings();
       setTimeout(() => setSuccess(""), 3000);
@@ -86,8 +103,30 @@ export default function Booking() {
     }
   };
 
+  const loadAllProducts = async () => {
+    try {
+      const [makeup, skincare, pricing] = await Promise.all([
+        makeupAPI.getAll(),
+        skincareAPI.getAll(),
+        pricingAPI.getAll(),
+      ]);
+
+      const combined = [
+        ...makeup.map((item) => ({ ...item, category: "Makeup" })),
+        ...skincare.map((item) => ({ ...item, category: "Skincare" })),
+        ...pricing.map((item) => ({ ...item, category: "Paket" })),
+      ];
+
+      setProductOptions(combined);
+    } catch (err) {
+      console.error("Gagal mengambil produk:", err.message);
+      setError("Gagal mengambil produk.");
+    }
+  };
+
   useEffect(() => {
     loadBookings();
+    loadAllProducts();
   }, []);
 
   return (
@@ -111,7 +150,7 @@ export default function Booking() {
             onChange={handleChange}
             placeholder="Nama lengkap"
             required
-            className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200"
+            className="w-full p-3 bg-gray-50 rounded-2xl border"
           />
 
           <input
@@ -122,7 +161,7 @@ export default function Booking() {
             onChange={handleChange}
             placeholder="Alamat Email"
             required
-            className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200"
+            className="w-full p-3 bg-gray-50 rounded-2xl border"
           />
 
           <div className="flex gap-4">
@@ -133,7 +172,7 @@ export default function Booking() {
               disabled={loading}
               onChange={handleChange}
               required
-              className="w-1/2 p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200"
+              className="w-1/2 p-3 bg-gray-50 rounded-2xl border"
             />
 
             <input
@@ -143,7 +182,7 @@ export default function Booking() {
               disabled={loading}
               onChange={handleChange}
               required
-              className="w-1/2 p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200"
+              className="w-1/2 p-3 bg-gray-50 rounded-2xl border"
             />
           </div>
 
@@ -153,12 +192,14 @@ export default function Booking() {
             disabled={loading}
             onChange={handleChange}
             required
-            className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200"
+            className="w-full p-3 bg-gray-50 rounded-2xl border"
           >
             <option value="">Pilih produk</option>
-            <option value="Snack Box A">Snack Box A</option>
-            <option value="Snack Box B">Snack Box B</option>
-            <option value="Snack Box C">Snack Box C</option>
+            {productOptions.map((item, idx) => (
+              <option key={idx} value={item.name}>
+                {item.name} - Rp{item.price.toLocaleString()}
+              </option>
+            ))}
           </select>
 
           <input
@@ -170,8 +211,12 @@ export default function Booking() {
             placeholder="Jumlah"
             min="1"
             required
-            className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200"
+            className="w-full p-3 bg-gray-50 rounded-2xl border"
           />
+
+          <p className="text-sm text-gray-500">
+            Harga total: <strong>Rp{formData.price.toLocaleString()}</strong>
+          </p>
 
           <textarea
             name="notes"
@@ -180,13 +225,13 @@ export default function Booking() {
             onChange={handleChange}
             placeholder="Catatan tambahan (opsional)"
             rows="3"
-            className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200 resize-none"
+            className="w-full p-3 bg-gray-50 rounded-2xl border resize-none"
           />
 
           <button
             type="submit"
             disabled={loading}
-            className="px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg"
+            className="px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-2xl"
           >
             {loading ? "Mengirim..." : "Kirim Booking"}
           </button>
@@ -201,11 +246,9 @@ export default function Booking() {
         </div>
 
         {loading && <LoadingSpinner text="Memuat booking..." />}
-
         {!loading && bookings.length === 0 && !error && (
           <EmptyState text="Belum ada booking yang masuk." />
         )}
-
         {!loading && bookings.length > 0 && (
           <div className="overflow-x-auto">
             <GenericTable
@@ -223,25 +266,20 @@ export default function Booking() {
               data={bookings}
               renderRow={(item, index) => (
                 <>
-                  <td className="px-6 py-4 font-medium text-gray-700">
-                    {index + 1}
-                  </td>
+                  <td className="px-6 py-4">{index + 1}</td>
                   <td className="px-6 py-4">{item.name}</td>
                   <td className="px-6 py-4">{item.email}</td>
                   <td className="px-6 py-4">{item.date}</td>
                   <td className="px-6 py-4">{item.time}</td>
                   <td className="px-6 py-4">{item.product}</td>
                   <td className="px-6 py-4">{item.quantity}</td>
-                  <td className="px-6 py-4 max-w-xs truncate">
-                    {item.notes}
-                  </td>
+                  <td className="px-6 py-4">{item.notes}</td>
                   <td className="px-6 py-4">
                     <button
                       onClick={() => handleDelete(item.id)}
                       disabled={loading}
-                      title="Hapus Booking"
                     >
-                      <AiFillDelete className="text-pink-300 text-2xl hover:text-pink-500 hover:scale-110 transition-transform duration-150" />
+                      <AiFillDelete className="text-pink-400 text-2xl hover:text-pink-600" />
                     </button>
                   </td>
                 </>

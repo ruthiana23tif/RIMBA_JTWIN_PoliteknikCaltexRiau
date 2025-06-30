@@ -10,15 +10,13 @@ const headers = {
 };
 
 export const makeupAPI = {
-  // Ambil semua produk makeup
-  async fetchMakeup() {
+  async getAll() {
     const response = await axios.get(API_URL, {
       headers,
       params: {
-        order: "created_at.asc", // sorting berdasarkan waktu dibuat
+        order: "created_at.asc",
       },
     });
-
     return response.data;
   },
 

@@ -10,7 +10,7 @@ const headers = {
 };
 
 export const skincareAPI = {
-  async fetchAll() { 
+  async getAll() {
     const response = await axios.get(API_URL, {
       headers,
       params: {
