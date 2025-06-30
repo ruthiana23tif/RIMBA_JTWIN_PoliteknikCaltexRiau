@@ -10,18 +10,16 @@ export default function Footer() {
         {/* Glow Animation Background */}
         <div className="absolute inset-0 bg-gradient-to-r from-pink-400 via-pink-300 to-pink-500 opacity-20 blur-3xl animate-pulse"></div>
 
-        {/* Logo */}
-<Link to="#" className="block">
-  <Logo className="mx-auto mb-4 w-32 relative z-10 cursor-pointer" />
-</Link>
+<Logo className="mx-auto mb-4 w-32 relative z-10 cursor-pointer" />
+
 
         {/* Nav */}
         <nav className="flex justify-center flex-wrap gap-6 mb-4 font-semibold relative z-10">
-          {/* <a href="#" className="hover:text-pink-500 transition">Home</a> */}
-          <a href="booking" className="hover:text-pink-500 transition">Shop</a>
-          <a href="media" className="hover:text-pink-500 transition">Gallery</a>
-          <a href="aboutus" className="hover:text-pink-500 transition">About</a>
-          <a href="contactus" className="hover:text-pink-500 transition">Contact</a>
+<Link to="/booking" className="hover:text-pink-500 transition">Shop</Link>
+<Link to="/media" className="hover:text-pink-500 transition">Gallery</Link>
+<Link to="/aboutus" className="hover:text-pink-500 transition">About</Link>
+<Link to="/contactus" className="hover:text-pink-500 transition">Contact</Link>
+
         </nav>
 
         {/* Social */}

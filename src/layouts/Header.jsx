@@ -205,7 +205,7 @@ export default function Header() {
           </div>
         </nav>
 
-        <div className="flex items-center space-x-4 text-pink-700 text-[29px]">
+        <div className="flex items-center space-x-4 text-pink-700 text-[20px]">
           <a
             href="https://glowsphere-app.vercel.app/"
             target="_blank"

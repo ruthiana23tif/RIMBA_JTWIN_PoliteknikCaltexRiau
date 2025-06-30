@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BsFillExclamationDiamondFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { ImSpinner2 } from "react-icons/im"; // Import spinner icon untuk loading
+
+import { ImSpinner2 } from "react-icons/im"; 
+import { loginAPI } from "../../services/loginAPI";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -23,33 +24,28 @@ export default function Login() {
   };
 
   // Fungsi untuk menangani submit form login
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true); // Menampilkan loading spinner
-    setError(""); // Mengosongkan error jika ada
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setError("");
 
-    try {
-      // Mengirimkan request ke API untuk login
-      const response = await axios.post("https://dummyjson.com/user/login", {
-        username: dataForm.email, // Memastikan parameter sesuai dengan yang diharapkan oleh API
-        password: dataForm.password,
-      });
+  try {
+    const result = await loginAPI.checkLogin(dataForm.email, dataForm.password);
 
-      // Mengecek apakah login berhasil
-      if (response.status === 200) {
-        navigate("/"); // Jika login sukses, arahkan ke halaman dashboard
-      } else {
-        setError("Login failed! Please try again.");
-      }
-    } catch (err) {
-      // Menangani error jika terjadi kesalahan dalam request
-      setError(
-        err.response ? err.response.data.message : "An error occurred"
-      );
-    } finally {
-      setLoading(false); // Menyembunyikan loading spinner setelah selesai
+    if (result.success) {
+      // Simpan user info ke localStorage atau context
+      localStorage.setItem("user", JSON.stringify(result.user));
+      navigate("/"); // Login sukses, arahkan ke dashboard
+    } else {
+      setError(result.message || "Email atau password salah.");
     }
-  };
+  } catch (err) {
+    setError("Terjadi kesalahan saat login.");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div>

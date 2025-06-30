@@ -49,6 +49,16 @@ button {
 button:hover {
   border-color: #646cff;
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;

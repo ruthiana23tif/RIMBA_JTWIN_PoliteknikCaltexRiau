@@ -45,7 +45,7 @@ export default function MediaGallery() {
   return (
     <Masonry
       breakpointCols={breakpointColumnsObj}
-      className="flex w-auto gap-4 p-4"
+      className="flex w-auto gap-4 p-4 "
       columnClassName="masonry-column"
     >
       {data.map((item) => {
