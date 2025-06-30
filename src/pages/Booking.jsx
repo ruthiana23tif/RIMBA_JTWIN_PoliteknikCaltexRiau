@@ -5,7 +5,6 @@ import GenericTable from "../components/GenericTable";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { bookingAPI } from "../services/bookingAPI";
 import { useState, useEffect } from "react";
-import Header from "../layouts/Header";
 
 export default function Booking() {
   const [bookings, setBookings] = useState([]);
@@ -92,164 +91,165 @@ export default function Booking() {
   }, []);
 
   return (
-      <div className="max-w-4xl mx-auto p-6">
-        <div className="mb-6">
-          <h2 className="text-3xl font-bold text-gray-800 mb-2">
-            Form Booking Produk
-          </h2>
-        </div>
+    <div className="max-w-4xl mx-auto p-6">
+      <div className="mb-6">
+        <h2 className="text-3xl font-bold text-gray-800 mb-2">
+          Form Booking Produk
+        </h2>
+      </div>
 
-        {error && <AlertBox type="error">{error}</AlertBox>}
-        {success && <AlertBox type="success">{success}</AlertBox>}
+      {error && <AlertBox type="error">{error}</AlertBox>}
+      {success && <AlertBox type="success">{success}</AlertBox>}
 
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-10">
-          <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="bg-white rounded-2xl shadow-lg p-6 mb-10">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            disabled={loading}
+            onChange={handleChange}
+            placeholder="Nama lengkap"
+            required
+            className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200"
+          />
+
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            disabled={loading}
+            onChange={handleChange}
+            placeholder="Alamat Email"
+            required
+            className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200"
+          />
+
+          <div className="flex gap-4">
             <input
-              type="text"
-              name="name"
-              value={formData.name}
+              type="date"
+              name="date"
+              value={formData.date}
               disabled={loading}
               onChange={handleChange}
-              placeholder="Nama lengkap"
               required
-              className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
+              className="w-1/2 p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200"
             />
-
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              disabled={loading}
-              onChange={handleChange}
-              placeholder="Alamat Email"
-              required
-              className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
-            />
-
-            <div className="flex gap-4">
-              <input
-                type="date"
-                name="date"
-                value={formData.date}
-                disabled={loading}
-                onChange={handleChange}
-                required
-                className="w-1/2 p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
-              />
-
-              <input
-                type="time"
-                name="time"
-                value={formData.time}
-                disabled={loading}
-                onChange={handleChange}
-                required
-                className="w-1/2 p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
-              />
-            </div>
-
-            <select
-              name="product"
-              value={formData.product}
-              disabled={loading}
-              onChange={handleChange}
-              required
-              className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
-            >
-              <option value="">Pilih produk</option>
-              <option value="Snack Box A">Snack Box A</option>
-              <option value="Snack Box B">Snack Box B</option>
-              <option value="Snack Box C">Snack Box C</option>
-            </select>
 
             <input
-              type="number"
-              name="quantity"
-              value={formData.quantity}
+              type="time"
+              name="time"
+              value={formData.time}
               disabled={loading}
               onChange={handleChange}
-              placeholder="Jumlah"
-              min="1"
               required
-              className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
+              className="w-1/2 p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200"
             />
-
-            <textarea
-              name="notes"
-              value={formData.notes}
-              disabled={loading}
-              onChange={handleChange}
-              placeholder="Catatan tambahan (opsional)"
-              rows="3"
-              className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 resize-none"
-            />
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg"
-            >
-              {loading ? "Mengirim..." : "Kirim Booking"}
-            </button>
-          </form>
-        </div>
-
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          <div className="px-6 py-4">
-            <h3 className="text-lg font-semibold">
-              Riwayat Booking ({bookings.length})
-            </h3>
           </div>
 
-          {loading && <LoadingSpinner text="Memuat booking..." />}
+          <select
+            name="product"
+            value={formData.product}
+            disabled={loading}
+            onChange={handleChange}
+            required
+            className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200"
+          >
+            <option value="">Pilih produk</option>
+            <option value="Snack Box A">Snack Box A</option>
+            <option value="Snack Box B">Snack Box B</option>
+            <option value="Snack Box C">Snack Box C</option>
+          </select>
 
-          {!loading && bookings.length === 0 && !error && (
-            <EmptyState text="Belum ada booking yang masuk." />
-          )}
+          <input
+            type="number"
+            name="quantity"
+            value={formData.quantity}
+            disabled={loading}
+            onChange={handleChange}
+            placeholder="Jumlah"
+            min="1"
+            required
+            className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200"
+          />
 
-          {!loading && bookings.length > 0 && (
-            <div className="overflow-x-auto">
-              <GenericTable
-                columns={[
-                  "#",
-                  "Nama",
-                  "Email",
-                  "Tanggal",
-                  "Jam",
-                  "Produk",
-                  "Jumlah",
-                  "Catatan",
-                  "Aksi",
-                ]}
-                data={bookings}
-                renderRow={(item, index) => (
-                  <>
-                    <td className="px-6 py-4 font-medium text-gray-700">
-                      {index + 1}
-                    </td>
-                    <td className="px-6 py-4">{item.name}</td>
-                    <td className="px-6 py-4">{item.email}</td>
-                    <td className="px-6 py-4">{item.date}</td>
-                    <td className="px-6 py-4">{item.time}</td>
-                    <td className="px-6 py-4">{item.product}</td>
-                    <td className="px-6 py-4">{item.quantity}</td>
-                    <td className="px-6 py-4 max-w-xs truncate">
-                      {item.notes}
-                    </td>
-                    <td className="px-6 py-4">
-                      <button
-                        onClick={() => handleDelete(item.id)}
-                        disabled={loading}
-                      >
-                        <AiFillDelete className="text-red-400 text-2xl hover:text-red-600 transition-colors" />
-                      </button>
-                    </td>
-                  </>
-                )}
-              />
-            </div>
-          )}
-        </div>
+          <textarea
+            name="notes"
+            value={formData.notes}
+            disabled={loading}
+            onChange={handleChange}
+            placeholder="Catatan tambahan (opsional)"
+            rows="3"
+            className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200 resize-none"
+          />
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg"
+          >
+            {loading ? "Mengirim..." : "Kirim Booking"}
+          </button>
+        </form>
       </div>
+
+      <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="px-6 py-4">
+          <h3 className="text-lg font-semibold">
+            Riwayat Booking ({bookings.length})
+          </h3>
+        </div>
+
+        {loading && <LoadingSpinner text="Memuat booking..." />}
+
+        {!loading && bookings.length === 0 && !error && (
+          <EmptyState text="Belum ada booking yang masuk." />
+        )}
+
+        {!loading && bookings.length > 0 && (
+          <div className="overflow-x-auto">
+            <GenericTable
+              columns={[
+                "#",
+                "Nama",
+                "Email",
+                "Tanggal",
+                "Jam",
+                "Produk",
+                "Jumlah",
+                "Catatan",
+                "Aksi",
+              ]}
+              data={bookings}
+              renderRow={(item, index) => (
+                <>
+                  <td className="px-6 py-4 font-medium text-gray-700">
+                    {index + 1}
+                  </td>
+                  <td className="px-6 py-4">{item.name}</td>
+                  <td className="px-6 py-4">{item.email}</td>
+                  <td className="px-6 py-4">{item.date}</td>
+                  <td className="px-6 py-4">{item.time}</td>
+                  <td className="px-6 py-4">{item.product}</td>
+                  <td className="px-6 py-4">{item.quantity}</td>
+                  <td className="px-6 py-4 max-w-xs truncate">
+                    {item.notes}
+                  </td>
+                  <td className="px-6 py-4">
+                    <button
+                      onClick={() => handleDelete(item.id)}
+                      disabled={loading}
+                      title="Hapus Booking"
+                    >
+                      <AiFillDelete className="text-pink-300 text-2xl hover:text-pink-500 hover:scale-110 transition-transform duration-150" />
+                    </button>
+                  </td>
+                </>
+              )}
+            />
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

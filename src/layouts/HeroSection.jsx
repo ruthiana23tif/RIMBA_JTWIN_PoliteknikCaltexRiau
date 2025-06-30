@@ -1,5 +1,5 @@
 "use client";
-
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
@@ -34,10 +34,12 @@ export default function HeroSection() {
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <button className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-3xl shadow-xl shadow-pink-300 transition-transform transform hover:scale-105 active:scale-95 relative overflow-hidden">
-            <span className="relative z-10">Explore Now</span>
-            <div className="absolute inset-0 bg-pink-400 opacity-20 blur-2xl"></div>
-          </button>
+          <Link to="/pricing">
+      <button className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-3xl shadow-xl shadow-pink-300 transition-transform transform hover:scale-105 active:scale-95 relative overflow-hidden">
+        <span className="relative z-10">Explore Now</span>
+        <div className="absolute inset-0 bg-pink-400 opacity-20 blur-2xl"></div>
+      </button>
+    </Link>
         </motion.div>
       </motion.div>
 

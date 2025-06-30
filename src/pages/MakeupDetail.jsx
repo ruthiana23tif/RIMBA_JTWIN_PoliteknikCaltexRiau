@@ -68,8 +68,8 @@ export default function MakeupDetail() {
           </span>
         </div>
 
-        <p className="text-gray-600">{product.description}</p>
-        <p className="text-sm text-gray-500">Vendor: {product.vendor}</p>
+        {/* <p className="text-gray-600">{product.description}</p> */}
+        {/* <p className="text-sm text-gray-500">Vendor: {product.vendor}</p> */}
         <p className="text-sm text-gray-500">SKU: {product.sku}</p>
         <p className="text-sm text-gray-500">Size: {product.size}</p>
 
