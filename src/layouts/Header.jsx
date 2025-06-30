@@ -87,6 +87,15 @@ export default function Header() {
                       Promo Paket
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      to="/simulasi"
+                      onClick={() => setOpenDropdown(null)}
+                      className="block px-4 py-2 hover:bg-pink-50"
+                    >
+                      Simulasi Harga
+                    </Link>
+                  </li>
                 </ul>
               </div>
             )}
