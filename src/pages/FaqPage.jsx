@@ -36,7 +36,10 @@ export default function FaqPage() {
   if (faqs.length === 0) return <EmptyState message="Belum ada pertanyaan yang tersedia." />;
 
   return (
-    <section className="min-h-screen py-16 px-4 md:px-20 bg-gradient-to-b from-pink-50 via-white to-pink-50 text-gray-800 relative overflow-hidden">
+    <section className="min-h-screen py-16 px-4 md:px-20 
+    bg-gradient-to-b from-pink-50 via-white to-pink-50 text-gray-800 relative overflow-hidden"
+    //  style={{ backgroundImage: "url('/img/try.png')" }}
+     >
 
       {/* Pink Glow Background Blobs */}
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-pink-300 opacity-30 blur-[120px] rounded-full pointer-events-none" />
@@ -108,6 +111,11 @@ export default function FaqPage() {
 
       {/* Noise overlay */}
       <div className="pointer-events-none absolute inset-0 bg-[url('/noise.png')] opacity-5"></div>
+      {/* <img 
+  src="/img/try.png" 
+  alt="FAQ Background"
+  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-4xl opacity-30 pointer-events-none z-0"
+/> */}
     </section>
   );
 }

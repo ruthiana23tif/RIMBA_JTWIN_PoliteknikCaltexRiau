@@ -26,7 +26,8 @@ export default function HeroSection() {
         </h1>
 
         <p className="text-pink-800 text-lg mb-8 max-w-xl mx-auto">
-          Experience the future of vibrant, glowing design with soft neon aesthetics.
+          Experience the future of vibrant, glowing design with soft neon
+          aesthetics.
         </p>
 
         <motion.div
@@ -35,16 +36,21 @@ export default function HeroSection() {
           transition={{ type: "spring", stiffness: 300 }}
         >
           <Link to="/pricing">
-      <button className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-3xl shadow-xl shadow-pink-300 transition-transform transform hover:scale-105 active:scale-95 relative overflow-hidden">
-        <span className="relative z-10">Explore Now</span>
-        <div className="absolute inset-0 bg-pink-400 opacity-20 blur-2xl"></div>
-      </button>
-    </Link>
+            <button className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-3xl shadow-xl shadow-pink-300 transition-transform transform hover:scale-105 active:scale-95 relative overflow-hidden">
+              <span className="relative z-10">Explore Now</span>
+              <div className="absolute inset-0 bg-pink-400 opacity-20 blur-2xl"></div>
+            </button>
+          </Link>
         </motion.div>
       </motion.div>
 
       {/* Subtle noise overlay */}
       <div className="pointer-events-none absolute inset-0 bg-[url('/noise.png')] opacity-5"></div>
+      {/* <img
+        src="/img/try.png"
+        alt="FAQ Background"
+        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-4xl opacity-30 pointer-events-none z-0"
+      /> */}
     </section>
   );
 }
