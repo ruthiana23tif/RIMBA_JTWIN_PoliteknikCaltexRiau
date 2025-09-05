@@ -3,6 +3,10 @@ import React from "react";
 import "./assets/tailwind.css";
 import { Routes, Route } from "react-router-dom";
 import AccountSettings from "./pages/AccountSettings";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminMap from "./pages/AdminMap";
+import AdminReport from "./pages/AdminReport";
+import AdminProfile from "./pages/AdminProfile";
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const Makeup = React.lazy(() => import("./pages/Makeup"));
 const Skincare = React.lazy(() => import("./pages/Skincare"));
@@ -42,6 +46,10 @@ function App() {
           <Route path="/makeup" element={<Makeup />} />
                     <Route path="/a1" element={<Amin />} />
 <Route path="/profil" element={<AccountSettings />} />
+<Route path="/adm" element={<AdminDashboard />} />
+<Route path="/map" element={<AdminMap />} />
+<Route path="/laporan" element={<AdminReport />} />
+<Route path="/admprofil" element={<AdminProfile />} />
           <Route path="/media" element={<MediaGallery />} />
           <Route path="/career" element={<CareerPage />} />
           <Route path="/faq" element={<FaqPage />} />
