@@ -2,6 +2,7 @@ import { useState, Suspense } from "react";
 import React from "react";
 import "./assets/tailwind.css";
 import { Routes, Route } from "react-router-dom";
+import AccountSettings from "./pages/AccountSettings";
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const Makeup = React.lazy(() => import("./pages/Makeup"));
 const Skincare = React.lazy(() => import("./pages/Skincare"));
@@ -40,7 +41,7 @@ function App() {
           <Route path="/skincare" element={<Skincare />} />
           <Route path="/makeup" element={<Makeup />} />
                     <Route path="/a1" element={<Amin />} />
-
+<Route path="/profil" element={<AccountSettings />} />
           <Route path="/media" element={<MediaGallery />} />
           <Route path="/career" element={<CareerPage />} />
           <Route path="/faq" element={<FaqPage />} />
