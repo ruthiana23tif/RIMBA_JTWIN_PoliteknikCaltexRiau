@@ -196,37 +196,37 @@ export default function Amin() {
     </thead>
     <tbody>
       <tr className="border-b">
-        <td className="p-2">Jan</td>
+        <td className="p-2">April</td>
         <td className="p-2 text-center">15</td>
         <td className="p-2 text-center">6</td>
         <td className="p-2 text-center">21</td>
       </tr>
       <tr className="border-b">
-        <td className="p-2">Feb</td>
+        <td className="p-2">Mei</td>
         <td className="p-2 text-center">12</td>
         <td className="p-2 text-center">4</td>
         <td className="p-2 text-center">16</td>
       </tr>
       <tr className="border-b">
-        <td className="p-2">Mar</td>
+        <td className="p-2">Juni</td>
         <td className="p-2 text-center">18</td>
         <td className="p-2 text-center">5</td>
         <td className="p-2 text-center">23</td>
       </tr>
       <tr className="border-b">
-        <td className="p-2">Apr</td>
+        <td className="p-2">Juli</td>
         <td className="p-2 text-center">10</td>
         <td className="p-2 text-center">7</td>
         <td className="p-2 text-center">17</td>
       </tr>
       <tr className="border-b">
-        <td className="p-2">Mei</td>
+        <td className="p-2">Agustus</td>
         <td className="p-2 text-center">14</td>
         <td className="p-2 text-center">3</td>
         <td className="p-2 text-center">17</td>
       </tr>
       <tr>
-        <td className="p-2">Jun</td>
+        <td className="p-2">September</td>
         <td className="p-2 text-center">16</td>
         <td className="p-2 text-center">4</td>
         <td className="p-2 text-center">20</td>
