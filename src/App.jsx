@@ -29,7 +29,7 @@ const FaqPage = React.lazy(() => import("./pages/FaqPage"));
 const Booking = React.lazy(() => import("./pages/Booking"));
 const PricingPage = React.lazy(() => import("./components/PricingPage"));
 const Simulasi = React.lazy(() => import("./pages/Simulasi"));
-
+const Amin = React.lazy(() => import("./pages/Amin"));
 function App() {
   const [count, setCount] = useState(0);
   return (
@@ -39,6 +39,8 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="/skincare" element={<Skincare />} />
           <Route path="/makeup" element={<Makeup />} />
+                    <Route path="/a1" element={<Amin />} />
+
           <Route path="/media" element={<MediaGallery />} />
           <Route path="/career" element={<CareerPage />} />
           <Route path="/faq" element={<FaqPage />} />
