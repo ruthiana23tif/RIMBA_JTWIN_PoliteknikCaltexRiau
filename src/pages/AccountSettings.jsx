@@ -1,90 +1,71 @@
-import React, { useState } from "react";
-import { Camera, X } from "lucide-react";
+// src/pages/AdminProfile.jsx
+import React from "react";
 
-export default function AccountSettings() {
-  const [profilePic, setProfilePic] = useState(null);
-
-  const handleUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setProfilePic(URL.createObjectURL(file));
-    }
-  };
-
-  const removePic = () => {
-    setProfilePic(null);
+export default function AdminProfile() {
+  const profile = {
+    name: "Admin Pemerintah",
+    email: "admin@kabupaten.go.id",
+    phone: "0800-123-456",
+    role: "Pemerintah Kab. X",
+    joined: "01 Januari 2025",
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 space-y-8">
-      <h1 className="text-2xl font-bold">Account Settings</h1>
+    <div className="p-6 max-w-2xl mx-auto">
+      {/* Header */}
+      <h1 className="text-2xl font-bold text-green-900 mb-6">
+        Profil Akun
+      </h1>
 
-      {/* Basic Info */}
-      <section>
-        <h2 className="font-semibold text-lg mb-4">Basic info</h2>
-        <div className="flex items-center gap-4 mb-6">
-          <div className="relative w-20 h-20 rounded-full overflow-hidden border">
-            {profilePic ? (
-              <img
-                src={profilePic}
-                alt="Profile"
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center bg-gray-200">
-                <Camera className="text-gray-500" />
-              </div>
-            )}
-          </div>
-          <div>
-            <label className="cursor-pointer text-sm text-blue-600 font-medium">
-              Upload new picture
-              <input
-                type="file"
-                accept="image/*"
-                className="hidden"
-                onChange={handleUpload}
-              />
-            </label>
-            {profilePic && (
-              <button
-                onClick={removePic}
-                className="block text-sm text-red-600 mt-1"
-              >
-                Remove
-              </button>
-            )}
-          </div>
+      {/* Card Profil */}
+      <div className="bg-white shadow-md rounded-xl p-6 flex items-center gap-6">
+        {/* Avatar */}
+        <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-green-700 to-green-500 flex items-center justify-center text-white text-2xl font-bold">
+          {profile.name.charAt(0)}
         </div>
 
-        <div className="divide-y border rounded-xl">
-          <InfoRow label="Name" value="Wade Armstrong" />
-          <InfoRow label="Date of Birth" value="December 24, 1991" />
-          <InfoRow label="Gender" value="Male" />
-          <InfoRow label="Email" value="wade.armstrong@email.com" />
+        {/* Info */}
+        <div className="flex-1">
+          <h2 className="text-xl font-semibold text-gray-900">
+            {profile.name}
+          </h2>
+          <p className="text-gray-600">{profile.role}</p>
+          <p className="text-sm text-gray-500 mt-1">
+            Bergabung sejak {profile.joined}
+          </p>
         </div>
-      </section>
-
-      {/* Account Info */}
-      <section>
-        <h2 className="font-semibold text-lg mb-4">Account info</h2>
-        <div className="divide-y border rounded-xl">
-          <InfoRow label="Username" value="wadearmstrong08" />
-          <InfoRow label="Password" value="********" />
-        </div>
-      </section>
-    </div>
-  );
-}
-
-function InfoRow({ label, value }) {
-  return (
-    <div className="flex justify-between items-center p-4 hover:bg-gray-50 cursor-pointer">
-      <div>
-        <p className="text-sm text-gray-500">{label}</p>
-        <p className="font-medium">{value}</p>
       </div>
-      <span className="text-gray-400">&gt;</span>
+
+      {/* Detail Info */}
+      <div className="bg-white shadow-md rounded-xl p-6 mt-6 space-y-4">
+        <h3 className="text-lg font-semibold text-green-900 mb-4">
+          Informasi Akun
+        </h3>
+        <div className="grid grid-cols-2 gap-y-3">
+          <p className="font-medium text-gray-700">Email:</p>
+          <p className="text-gray-600">{profile.email}</p>
+
+          <p className="font-medium text-gray-700">Nomor Telepon:</p>
+          <p className="text-gray-600">{profile.phone}</p>
+
+          <p className="font-medium text-gray-700">Peran:</p>
+          <p className="text-gray-600">{profile.role}</p>
+        </div>
+      </div>
+
+      {/* Tombol Aksi */}
+      <div className="flex gap-4 mt-6">
+        <button
+          className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold shadow-md transition"
+        >
+          Edit Profil
+        </button>
+        <button
+          className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg font-semibold transition"
+        >
+          Keluar
+        </button>
+      </div>
     </div>
   );
 }

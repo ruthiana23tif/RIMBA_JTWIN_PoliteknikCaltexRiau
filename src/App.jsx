@@ -7,6 +7,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminMap from "./pages/AdminMap";
 import AdminReport from "./pages/AdminReport";
 import AdminProfile from "./pages/AdminProfile";
+import AdminNotifications from "./pages/AdminNotifications";
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const Makeup = React.lazy(() => import("./pages/Makeup"));
 const Skincare = React.lazy(() => import("./pages/Skincare"));
@@ -50,6 +51,7 @@ function App() {
 <Route path="/map" element={<AdminMap />} />
 <Route path="/laporan" element={<AdminReport />} />
 <Route path="/admprofil" element={<AdminProfile />} />
+<Route path="/notif" element={<AdminNotifications />} />
           <Route path="/media" element={<MediaGallery />} />
           <Route path="/career" element={<CareerPage />} />
           <Route path="/faq" element={<FaqPage />} />
