@@ -6,6 +6,7 @@ import "leaflet/dist/leaflet.css";
 
 import HomeRimba from "./pages/HomeRimba";
 import PetaMonitoring from "./pages/PetaMonitoring";
+import Laporan from "./pages/Laporan";
 
 const NotFound = React.lazy(() => import("./pages/ErrorPage"));
 const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
@@ -21,10 +22,9 @@ function App() {
     <Suspense fallback={<Loading />}>
       <Routes>
         <Route element={<MainLayout />}>
-<Route index element={<HomeRimba />} />
-<Route path="/peta" element={<PetaMonitoring />} />
-          {/* <Route path="/homeRimba" element={<HomeRimba />} /> */}
-
+          <Route index element={<HomeRimba />} />
+          <Route path="/peta" element={<PetaMonitoring />} />
+          <Route path="/laporan" element={<Laporan />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
