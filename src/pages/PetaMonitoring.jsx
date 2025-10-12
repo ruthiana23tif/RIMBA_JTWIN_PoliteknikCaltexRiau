@@ -4,6 +4,7 @@ import "leaflet/dist/leaflet.css";
 import axios from "axios";
 import { FaSearch } from "react-icons/fa";
 import Navbar from "../components/Navbar";
+import desaData from "../../backend/desa.json";
 
 const API_URL = "https://hjnhfrbavxuywcuffpev.supabase.co/rest/v1/tiger_locations";
 const API_KEY =
@@ -14,6 +15,8 @@ const headers = {
   Authorization: `Bearer ${API_KEY}`,
   "Content-Type": "application/json",
 };
+
+const villages = desaData;
 
 // Fungsi menghitung jarak antar koordinat (meter)
 function getDistance(lat1, lon1, lat2, lon2) {
@@ -40,6 +43,42 @@ const PetaMonitoring = () => {
     { name: "Desa Lubuk Kembang Bunga", lat: -0.232, lng: 102.39 },
     { name: "Desa Segati", lat: -0.28, lng: 102.38 },
   ];
+
+  useEffect(() => {
+  const checkDistance = async () => {
+    if (!tigers || tigers.length === 0) return;
+
+    for (const tiger of tigers) {
+      for (const village of villages) {
+        const distance = getDistance(
+          tiger.lat,
+          tiger.lng,
+          village.lat,
+          village.lng
+        );
+
+        if (distance < 1) { // kalau kurang dari 1 km
+          console.log(`⚠️ Harimau dekat ${village.name} (${distance.toFixed(2)} km)`);
+
+          // kirim ke backend untuk kirim WA
+          await fetch("http://localhost:4000/api/send-wa", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              number: "6285xxxxxxxxx", // ganti nomor WA penerima
+              message: `⚠️ Harimau terdeteksi dekat ${village.name}! Jarak ${distance.toFixed(2)} km.`,
+            }),
+          });
+        }
+      }
+    }
+  };
+
+  checkDistance();
+}, [tigers]);
+
 
   // Ambil data awal dari Supabase
   useEffect(() => {
